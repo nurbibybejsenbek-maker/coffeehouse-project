@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: coffeehouse-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: coffeehouse
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - coffeehouse-network
+
+  # Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coffeehouse-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: file:./prisma/dev.db
+      NEXTAUTH_SECRET: coffeehouse-secret-key-change-in-production
+      NEXTAUTH_URL: http://localhost:3000
+      JWT_SECRET: coffeehouse-jwt-secret-change-in-production
+      PAYMENT_MODE: sandbox
+      NODE_ENV: production
+    volumes:
+      - ./prisma:/app/prisma
+    networks:
+      - coffeehouse-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  coffeehouse-network:
+    driver: bridge
+
