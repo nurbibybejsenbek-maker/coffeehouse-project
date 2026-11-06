@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "project": "CoffeeHouse",
+  "repository": "nurbibybejsenbek-maker/coffeehouse-project",
+  "html_url": "https://github.com/nurbibybejsenbek-maker/coffeehouse-project",
+  "private": false,
+  "default_branch": "main",
+  "generated_at": "2026-11-06T08:21:42.925878+00:00",
+  "timezone": "Asia/Almaty",
+  "window": {
+    "days": 30,
+    "start": "2026-10-07T08:21:42.925878+00:00",
+    "end": "2026-11-06T08:21:42.925878+00:00"
+  },
+  "thresholds": {
+    "deployment_frequency": {
+      "Elite": "күніне бірнеше рет (тәулігіне > 1)",
+      "High": "тәулігіне 1 мен аптасына 1 арасы",
+      "Medium": "аптасына 1 мен айына 1 арасы",
+      "Low": "айына 1-ден сирек"
+    },
+    "lead_time": {
+      "Elite": "1 күннен аз",
+      "High": "1 күн – 1 апта",
+      "Medium": "1 апта – 1 ай",
+      "Low": "1 айдан ұзақ"
+    },
+    "change_failure_rate": {
+      "Elite": "≤ 15%",
+      "High": "15–30%",
+      "Medium": "30–45%",
+      "Low": "> 45%"
+    },
+    "time_to_restore": {
+      "Elite": "1 сағаттан аз",
+      "High": "1 сағат – 1 күн",
+      "Medium": "1 күн – 1 апта",
+      "Low": "1 аптадан ұзақ"
+    }
+  },
+  "usage_policy": "DORA деңгейі команданың жеткізу жүйесін талқылауға арналған. Оны жеке адамның бонусына, рейтингіне немесе жазасына байламаңыз. Сәтсіз өзгеріс пен қалпына келтіру үшін дерек жоқ кезде 0 деп жазу — метриканы жасыру, жақсарту емес.",
+  "sources": {
+    "github_commits": 2,
+    "github_commits_in_window": 2,
+    "local_head_count": 2,
+    "pull_requests": 0,
+    "releases": 0,
+    "tags": 0,
+    "deployment_records": 0,
+    "workflow_runs": 0
+  },
+  "commits": [
+    {
+      "sha": "ea5dad834d7537489f74669e3ace00f54e91b1c5",
+      "date": "2026-10-09T08:26:20Z",
+      "message": "Initial commit: CoffeeHouse WEB project",
+      "author": "Нурбиби"
+    },
+    {
+      "sha": "d4a4b567be80ceff4b176ade58b9cb6b0d163c40",
+      "date": "2026-10-09T08:56:47Z",
+      "message": "Создано в Colab",
+      "author": "nurbibybejsenbek-maker"
+    }
+  ],
+  "pull_requests": [],
+  "deployments": [],
+  "workflow_runs": [],
+  "branch_protection": {
+    "enabled": false,
+    "enforce_admins": null,
+    "required_approving_review_count": null,
+    "dismiss_stale_reviews": null,
+    "required_status_checks": null,
+    "strict": null,
+    "conversation_resolution": null,
+    "allow_force_pushes": null
+  },
+  "deployment_frequency": {
+    "production_deployments": 0,
+    "staging_deployments": 0,
+    "window_days": 30,
+    "per_day": 0.0,
+    "per_week": 0.0,
+    "per_month": 0.0,
+    "level": "Low",
+    "definition": "Соңғы 30 күндегі өндірістік орналастыру саны. CI жасыл болуы деплой емес."
+  },
+  "lead_time": {
+    "sample_count": 0,
+    "median_hours": null,
+    "level": "дерек жеткіліксіз",
+    "diagnostic": {
+      "oldest_undeployed_commit": "2026-10-09T08:26:20+00:00",
+      "age_days": 28.0,
+      "lower_bound_level_if_deployed_now": "Medium",
+      "note": "Бұл lead time емес, төменгі шек. Өзгеріс өндіріске әлі шықпаған. Бүгін шықса, lead time кемінде осы жасқа тең болар еді."
+    },
+    "definition": "Коммит уақытынан сол коммитті қамтыған өндірістік орналастыруға дейін. Медиана."
+  },
+  "change_failure_rate": {
+    "failed": null,
+    "total": 0,
+    "revert_commits": 0,
+    "ratio": null,
+    "level": "дерек жеткіліксіз",
+    "definition": "Сәтсіз аяқталған өндірістік орналастыру / барлық өндірістік орналастыру. Бөлім 0 болса, үлес есептелмейді."
+  },
+  "time_to_restore": {
+    "sample_count": 0,
+    "median_hours": null,
+    "level": "дерек жеткіліксіз",
+    "definition": "Сәтсіз өндірістік орналастырудан келесі сәттісіне дейін. Медиана."
+  },
+  "devex": {
+    "pull_requests": 0,
+    "direct_pushes_to_main": 2,
+    "ci_runs_in_window": 0,
+    "ci_success": 0,
+    "ci_failure": 0,
+    "median_feedback_minutes": null,
+    "environment_note": "docker-compose.yml PostgreSQL қызметін көтереді, бірақ қолданба DATABASE_URL=file:./prisma/dev.db арқылы SQLite-ты қолданады. Жергілікті орта, CI (SQLite ci.db) және compose бір дерекқор әңгімесін айтпайды."
+  },
+  "improvements": {
+    "deployment_frequency": [
+      {
+        "title": "Әр біріктіруден кейін staging",
+        "action": "Ұзақ бұтақ жоқ. PR 400 жолдан аспайды, lint-and-test және build жасыл болғанда main staging-ке автоматты орналастырылады. Продакшен тек сейсенбі 15:30 терезесінде.",
+        "expected_effect": "Қазір прод орналастыру 0 (0.0/апта), деңгей Low. Күтілетін әсер: staging жиілігі аптасына кемінде 3 (High), прод жиілігі айына 0-ден аптасына 1-ге (Low → Medium)."
+      },
+      {
+        "title": "Деплой мен релизді feature flag арқылы бөлу",
+        "action": "Жаңа тапсырыс немесе брондау main-ге өшірулі flag-пен енеді. Релиз — терезеде flag-ті қосу, кері қайтару — flag-ті өшіру.",
+        "expected_effect": "Кодты продқа күнде жіберуге болады (DF High шегі: тәулігіне 1-ге дейін), пайдаланушы тәуекелі сейсенбілік терезеде қалады. Сәтсіз релиз жаңа құрастыруды күтпей тоқтайды."
+      }
+    ],
+    "lead_time": [
+      {
+        "title": "Кері байланысты 15 минуттың астына түсіру",
+        "action": "PR міндетті CI-ды күтеді. Қазіргі кері байланыс ұзақтығы: әлі жоқ (құбыржол алғаш рет осы лабораторияда қосылды). Мақсат — lint, тест және build бірге 15 минуттан қысқа.",
+        "expected_effect": "Аяқталмаған өзгерістің жасы 28 күн (бүгін шықса деңгей Medium). Күтілетін әсер: commit → staging 1 күннен аз (Elite/High шегі), өйткені ревью CI аяқталғанша тоқтап қалмайды."
+      },
+      {
+        "title": "Тікелей main орнына қысқа PR",
+        "action": "Қорғау ережесі write-қолжетімді авторлардан бір бекіту сұрайды. PR үлгісінде қабылдау критерийі бар. Trunk-based: бұтақ бір-екі күннен ұзақ өмір сүрмейді.",
+        "expected_effect": "Қазір pull request 0, сондықтан ревью уақыты өлшенбейді, ал өзгеріс 28 күн бойы шықпай тұр. Күтілетін әсер: commit → прод келесі сейсенбіде, яғни 7 күннен аспайды (Medium). 28 күн тоқтап тұру қайталанбайды."
+      }
+    ],
+    "change_failure_rate": [
+      {
+        "title": "Релиз алдындағы бес қадамдық smoke",
+        "action": "Басты бет, мәзір, sandbox тапсырыс, брондау, админ кіру — терезеде, пайдаланушыға ашпас бұрын. Сәтсіз smoke прод релизін тоқтатады және журналда сәтсіз өзгеріс болады.",
+        "expected_effect": "Қазір үлес есептелмейді: өндірістік орналастыру 0, оны 0% деп жазуға болмайды. Күтілетін әсер: алғашқы 8 прод релизінен кейін үлес шынайы шығады және smoke арқылы ≤ 15% (Elite шегі) мақсаты ұсталады."
+      },
+      {
+        "title": "Алдымен қызметкер, содан кейін қонақ",
+        "action": "Canary осы жобаның масштабында: flag әуелі админ/қызметкер сессиясында, 15 минуттық бақылаудан кейін барлық қонаққа. Blue-green — екі compose жобасы, портты ауыстыру.",
+        "expected_effect": "Ақау алдымен ішкі пайдаланушыға тиеді. Тоқтатылған canary бір сәтсіз өзгеріс болып жазылады, жасырылмайды. Пайдаланушыға жеткен сәтсіз релиз үлесінің мақсаты ≤ 15%."
+      }
+    ],
+    "time_to_restore": [
+      {
+        "title": "Алдыңғы artifact-қа бір қадаммен оралу",
+        "action": "CI соңғы жасыл standalone мұрағатын 14 күн сақтайды. Инцидент болса, Нұрбиби алдыңғы SHA-ны көтереді, Элеонора smoke жасайды, Назгүл уақытты жазады. Чек-парақ: lab10/release/rollback-checklist.md.",
+        "expected_effect": "Қазір MTTR өлшенбейді: сәтсіз прод орналастыру да, қалпына келтіру де жоқ. Күтілетін әсер: анықталған сәттен қалпына келгенше 30 минуттан аз (Elite шегі — 1 сағаттан аз)."
+      },
+      {
+        "title": "Сұлбаны кері қайтарылмайтын етіп өзгертпеу",
+        "action": "SQLite файлы терезеден 15 минут бұрын көшіріледі. Релизде баған өшірілмейді: алдымен expand, келесі терезеде ғана contract. Кері қайтару қолданбаны ауыстырады, дерекқорды қолмен жөндемейді.",
+        "expected_effect": "Қалпына келтіру дерек файлын іздеуге айналып кетпейді. Сұлба өзгерген сирек релизде көшірмеден оралу да 1 сағаттың ішінде қалады."
+      }
+    ]
+  },
+  "space": {
+    "satisfaction": "Өлшенбеген. Келесі ретрода 1–5 шкала, жеке жазасыз.",
+    "performance": "DORA — нәтиже. Жеке өнімділік ретінде коммит санын қолданбаңыз.",
+    "activity": "Терезедегі коммит: 2. Белсенділік жеткізу емес.",
+    "communication": "Pull request: 0. Ревью ілмегі әлі жоқ, талап PR үлгісінде.",
+    "efficiency_and_flow": "Үзіліс пен кері байланыс: CI ұзақтығы әлі өлшенбеген. Ағынды сейсенбілік прод терезесі және lab09 WIP лимиті қорғайды."
+  }
+}

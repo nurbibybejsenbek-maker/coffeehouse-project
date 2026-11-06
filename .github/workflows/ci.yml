@@ -1,0 +1,138 @@
+# CoffeeHouse CI: линтер, тест, құрастыру, осалдықты сканерлеу, артефакт.
+# Осалдық табылса да құбыржол тоқтамайды: есеп артефакт болып шығады.
+# Себебі тәуелділіктердің ағымдағы базасы әлі сұрыпталмаған. Қызыл қақпа
+# барлық жеткізуді тоқтатып, DORA lead time-ды ұзартады. Жаңа CRITICAL
+# олқылықты релиз чек-парағы адам қолымен тоқтатады.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  actions: write
+
+env:
+  NEXT_TELEMETRY_DISABLED: "1"
+  DATABASE_URL: file:./prisma/ci.db
+  NEXTAUTH_SECRET: ci-only-secret-not-for-production
+  NEXTAUTH_URL: http://localhost:3000
+  JWT_SECRET: ci-only-jwt-secret
+  HUSKY: "0"
+
+jobs:
+  lint-and-test:
+    name: lint-and-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prisma client
+        run: pnpm exec prisma generate
+      - name: Lint
+        run: pnpm lint
+      - name: Test
+        run: pnpm test
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prisma client and empty CI database
+        run: |
+          pnpm exec prisma generate
+          pnpm exec prisma db push --skip-generate --accept-data-loss
+      - name: Build
+        run: pnpm build
+      - name: Pack standalone artifact
+        run: |
+          set -euo pipefail
+          test -d .next/standalone
+          test -d .next/static
+          mkdir -p artifact/app/.next
+          cp -a .next/standalone/. artifact/app/
+          cp -a .next/static artifact/app/.next/static
+          if [ -d public ]; then cp -a public artifact/app/public; fi
+          printf 'sha=%s\nref=%s\nrepository=%s\n' "$GITHUB_SHA" "$GITHUB_REF" "$GITHUB_REPOSITORY" > artifact/build-info.txt
+          tar -czf artifact/coffeehouse-standalone.tgz -C artifact app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coffeehouse-${{ github.sha }}
+          path: |
+            artifact/coffeehouse-standalone.tgz
+            artifact/build-info.txt
+          if-no-files-found: error
+          retention-days: 14
+
+  security-scan:
+    name: security-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: OSV-Scanner
+        id: osv
+        continue-on-error: true
+        uses: google/osv-scanner-action/osv-scanner-action@v2.7.0
+        with:
+          scan-args: |-
+            --lockfile=./pnpm-lock.yaml
+            --format=json
+            --output=osv-report.json
+      - name: OSV report must exist
+        run: |
+          if [ ! -s osv-report.json ]; then
+            echo "OSV-Scanner есеп жазбады. Жоғарыдағы қадамның қатесін қараңыз."
+            exit 1
+          fi
+          echo "OSV-Scanner аяқталды. Осалдықтар есепте, құбыржол базадағы белгілі олқылықтан тоқтамайды."
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln
+          format: json
+          output: trivy-report.json
+          exit-code: "0"
+          severity: CRITICAL,HIGH
+          skip-dirs: node_modules,lab09/.venv,lab10/.venv,.next
+      - name: Trivy report must exist
+        run: test -s trivy-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: security-reports-${{ github.sha }}
+          path: |
+            osv-report.json
+            trivy-report.json
+          if-no-files-found: error
+          retention-days: 14
