@@ -1,0 +1,18 @@
+# Демо-стендтің сыртқы зонды. Қолданба хостта 3000 портта тұр деп есептеледі.
+# Алғашқы кіру: http://127.0.0.1:3001 — тіркелгіні UI-де құрыңыз, құпиясөзді репозиторийге жазбаңыз.
+# Зондтар тізімі: monitors.json. Оларды Uptime Kuma ішінде сол URL-мен қосыңыз.
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: coffeehouse-uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - kuma_data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  kuma_data:

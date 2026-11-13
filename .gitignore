@@ -38,9 +38,14 @@ next-env.d.ts
 # prisma
 /prisma/migrations
 
-# lab09 / lab10 python env
+# lab09 / lab10 / lab11 python env
 /lab09/.venv/
 /lab10/.venv/
+/lab11/.venv/
+/lab11/e2e/node_modules/
+/lab11/e2e/test-results/
+/lab11/e2e/playwright-report/
+/lab11/load/summary.json
 __pycache__/
 
 # CI sqlite sandbox (Prisma resolves file:./prisma/ci.db from the schema directory)

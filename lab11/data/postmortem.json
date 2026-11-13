@@ -1,0 +1,29 @@
+{
+  "id": "INC-2026-1110",
+  "title": "Демо-стенд тапсырысты 14 минут қабылдамады",
+  "blameless": true,
+  "timezone": "Asia/Almaty",
+  "openedOn": "2026-11-10",
+  "reviewedOn": "2026-11-12",
+  "severity": "SEV-2",
+  "downtimeMinutes": 14,
+  "slo": 0.999,
+  "monthDays": 30,
+  "actions": [
+    {
+      "id": "ACT-11-01",
+      "owner": "Бейсенбек Нұрбиби",
+      "dueOn": "2026-11-20"
+    },
+    {
+      "id": "ACT-11-02",
+      "owner": "Жаукарбекова Элеонора",
+      "dueOn": "2026-11-24"
+    },
+    {
+      "id": "ACT-11-03",
+      "owner": "Естемес Назгүл",
+      "dueOn": "2026-11-18"
+    }
+  ]
+}

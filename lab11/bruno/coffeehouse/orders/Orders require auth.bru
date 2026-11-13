@@ -1,0 +1,19 @@
+meta {
+  name: Orders require auth
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/orders
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 401
+}
+
+settings {
+  encodeUrl: true
+}

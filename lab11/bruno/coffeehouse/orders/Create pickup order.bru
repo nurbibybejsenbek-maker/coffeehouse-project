@@ -1,0 +1,48 @@
+meta {
+  name: Create pickup order
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "firstName": "Сынақ",
+    "lastName": "Қонақ",
+    "phone": "+7 700 000 00 11",
+    "email": "guest-uat@example.test",
+    "orderType": "PICKUP",
+    "paymentMethod": "CASH",
+    "items": [
+      {
+        "menuItemId": "{{menuItemId}}",
+        "quantity": 1,
+        "unitPrice": {{unitPrice}},
+        "totalPrice": {{unitPrice}}
+      }
+    ],
+    "totalAmount": {{unitPrice}}
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+docs {
+  Алдымен «Get menu» жүгіру керек: menuItemId мен unitPrice содан жазылады.
+  Әр жіберу жаңа тапсырыс ашады. Жинақты тұтас қосудың алдында осы сұранысты өшіріңіз.
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get menu
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/menu
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  const body = res.getBody();
+  if (Array.isArray(body) && body.length > 0) {
+    bru.setVar("menuItemId", body[0].id);
+    bru.setVar("unitPrice", String(body[0].price));
+  }
+}
+
+settings {
+  encodeUrl: true
+}

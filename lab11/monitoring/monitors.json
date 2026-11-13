@@ -1,0 +1,40 @@
+{
+  "note": "Uptime Kuma алғашқы әкімшіні UI-де сұрайды. Осы тізім сол экранға көшірілетін зонд конфигурациясы. POST /api/orders мұнда жоқ: минут сайынғы жазу тапсырыс қоқымын жасайды.",
+  "alert": {
+    "afterFailures": 2,
+    "runbook": "lab11/docs/runbook.md#rb-order-5xx"
+  },
+  "probes": [
+    {
+      "name": "CoffeeHouse home kk",
+      "type": "http",
+      "url": "http://host.docker.internal:3010/kk",
+      "intervalSec": 60,
+      "acceptedStatus": [200],
+      "alertAfterFailures": 2
+    },
+    {
+      "name": "CoffeeHouse menu API",
+      "type": "http",
+      "url": "http://host.docker.internal:3010/api/menu",
+      "intervalSec": 60,
+      "acceptedStatus": [200],
+      "keyword": "price",
+      "alertAfterFailures": 2
+    },
+    {
+      "name": "CoffeeHouse API index",
+      "type": "http",
+      "url": "http://host.docker.internal:3010/api/index",
+      "intervalSec": 60,
+      "acceptedStatus": [200],
+      "alertAfterFailures": 2
+    }
+  ],
+  "notMonitoredByKuma": [
+    {
+      "name": "POST /api/orders",
+      "reason": "Жазу зонды дерекқорды толтырады. Релиз алдында lab11/load/order-write.js, ALLOW_WRITES=1."
+    }
+  ]
+}

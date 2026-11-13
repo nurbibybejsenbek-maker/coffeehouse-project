@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "Айгүл",
+    "lastName": "Сынаққызы",
+    "phone": "+7 (700) 000-00-11",
+    "email": "aigul.synak@mail.example",
+    "address": "Алматы, Абай даңғылы 10",
+    "iin": "000000000000",
+    "card": "4400000000000000",
+    "note": "synthetic-uat"
+  }
+]
