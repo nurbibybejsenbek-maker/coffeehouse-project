@@ -1,0 +1,264 @@
+{
+  "name": "coffeehouse-review-moderation-gold",
+  "authored": "2026-11-20",
+  "author_note": "Эталонды жауаптарды жоба авторы саясат бойынша өзі жазды. Дайын датасеттен көшірілмеген. Белгілер модель жауабын көрместен қойылды.",
+  "policy": {
+    "publish": "Өз тәжірибесі туралы пікір: балағат, жарнама, сілтеме, бөтен адамның телефоны немесе email жоқ. Дәм, баға, атмосфера туралы жеңіл ескерту менеджердің жеке әрекетін қажет етпейді.",
+    "hold": "Балағатсыз шағым: суық сусын, ұзақ күту, қате тапсырыс немесе чек, кір үстел, жоғалған бронь, қайта алынған төлем, қызметкердің елемеуі. Немесе мағынасы екіұшты мәтін.",
+    "reject": "Балағат, қорлау, жеккөру, жарнама, сілтеме, алаяқтық, телефон, email, мессенджер, бөтен адамның аты мен байланысы."
+  },
+  "examples": [
+    {
+      "id": "CH-01",
+      "language": "kk",
+      "rating": 5,
+      "comment": "Бүгін латте өте дәмді болды, көбігі де қою. Таңертең келуге ыңғайлы.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-02",
+      "language": "kk",
+      "rating": 4,
+      "comment": "Капучино жылы, қызметкерлер сыпайы. Бағасы сәл қымбат, бірақ ұнайды.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-03",
+      "language": "kk",
+      "rating": 5,
+      "comment": "Американо ащылау шықты, маған ұнады. Круассан жұмсақ екен.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-04",
+      "language": "kk",
+      "rating": 4,
+      "comment": "Орындар таза, розетка бар. Кітап оқып отыруға жайлы.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-05",
+      "language": "kk",
+      "rating": 2,
+      "comment": "Латте суық әкелінді, қайта сұрадым. Жиырма минут күттім.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-06",
+      "language": "kk",
+      "rating": 1,
+      "comment": "Тапсырысымды шатастырды: карамель орнына қара кофе берді. Ақшаны қайтармады.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-07",
+      "language": "kk",
+      "rating": 3,
+      "comment": "Дәретхана таза емес екен. Сусынның өзі жаман емес.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-08",
+      "language": "kk",
+      "rating": 2,
+      "comment": "Кассадағы қыз жауап бермей, телефонмен сөйлесіп тұрды. Көңілім қалды.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-09",
+      "language": "kk",
+      "rating": 1,
+      "comment": "Кассир ақымақ, қолы қисық. Бұндай жерге ешкім келмесін.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-10",
+      "language": "kk",
+      "rating": 5,
+      "comment": "Жалақыңды көтергің келсе мына нөмірге жаз +7 777 123 45 67, жұмыс бар.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-11",
+      "language": "kk",
+      "rating": 1,
+      "comment": "Даяшы мал, кофең у. Жабылыңдар.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-12",
+      "language": "kk",
+      "rating": 5,
+      "comment": "Telegram: @free_crypto_kz, тегін ақша. Кофе деген сылтау ғана.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-13",
+      "language": "ru",
+      "rating": 5,
+      "comment": "Капучино отличный, пенка плотная. Вернусь утром перед работой.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-14",
+      "language": "ru",
+      "rating": 4,
+      "comment": "Тихо, чисто, розетки есть. Чизкейк свежий.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-15",
+      "language": "ru",
+      "rating": 5,
+      "comment": "Эспрессо крепкий, как я люблю. Персонал улыбается.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-16",
+      "language": "ru",
+      "rating": 3,
+      "comment": "Немного сладко для меня, но зерно хорошее. Возьму американо в следующий раз.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-17",
+      "language": "ru",
+      "rating": 2,
+      "comment": "Ждала заказ 25 минут, латте принесли чуть теплым. Без грубости, но неприятно.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-18",
+      "language": "ru",
+      "rating": 3,
+      "comment": "В чеке два круассана, я брала один. Прошу проверить.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-19",
+      "language": "ru",
+      "rating": 3,
+      "comment": "Столик у окна липкий, его никто не протер. Кофе нормальный.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-20",
+      "language": "ru",
+      "rating": 2,
+      "comment": "Бронь на 18:00 не нашли, хотя я оставляла имя Айгерим. Пришлось ждать.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-21",
+      "language": "ru",
+      "rating": 1,
+      "comment": "Бариста тупой, руки кривые, кофе как помои.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-22",
+      "language": "ru",
+      "rating": 5,
+      "comment": "Заработай на ставках, пиши https://bet-now.example, кофейня так, для вида.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-23",
+      "language": "ru",
+      "rating": 1,
+      "comment": "Официантка тупая. Позор заведению.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-24",
+      "language": "ru",
+      "rating": 1,
+      "comment": "Вот телефон менеджера Асель +7 701 555 12 12, требую уволить.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-25",
+      "language": "en",
+      "rating": 5,
+      "comment": "Flat white was smooth and not too hot. Nice morning stop.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-26",
+      "language": "en",
+      "rating": 4,
+      "comment": "Friendly cashier, oat latte done right. A bit pricey, still fine.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-27",
+      "language": "en",
+      "rating": 5,
+      "comment": "Loved the chocolate muffin. Coffee was balanced.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-28",
+      "language": "en",
+      "rating": 4,
+      "comment": "Quiet corner, good for a laptop. I will come back.",
+      "gold_action": "publish"
+    },
+    {
+      "id": "CH-29",
+      "language": "en",
+      "rating": 2,
+      "comment": "My cappuccino arrived cold and I waited fifteen minutes. Staff was polite when I asked.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-30",
+      "language": "en",
+      "rating": 1,
+      "comment": "The app charged me twice for one americano. Please refund the second payment.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-31",
+      "language": "en",
+      "rating": 3,
+      "comment": "The table was dirty and the bin was overflowing. The drink itself was okay.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-32",
+      "language": "en",
+      "rating": 2,
+      "comment": "They lost my reservation and offered no apology. Not rude, just careless.",
+      "gold_action": "hold"
+    },
+    {
+      "id": "CH-33",
+      "language": "en",
+      "rating": 1,
+      "comment": "The barista is an idiot and the coffee tastes like dirt.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-34",
+      "language": "en",
+      "rating": 5,
+      "comment": "Win an iPhone, open http://prize-coffee.example and enter your card.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-35",
+      "language": "en",
+      "rating": 1,
+      "comment": "Stupid staff, disgusting place. Do not waste your money.",
+      "gold_action": "reject"
+    },
+    {
+      "id": "CH-36",
+      "language": "en",
+      "rating": 4,
+      "comment": "Call me for cheap cigarettes, +7 747 000 11 22, ask for Dima.",
+      "gold_action": "reject"
+    }
+  ]
+}

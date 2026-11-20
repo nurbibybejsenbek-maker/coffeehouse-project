@@ -1,0 +1,824 @@
+{
+  "eval_set_sha256": "025d5f13b1a468a9eac475295276746500d106df19401b98f6ab70423c061ee2",
+  "n": 36,
+  "acceptance": {
+    "frozen_before_run": "2026-11-20",
+    "candidate_prompt": "v2",
+    "baseline_prompt": "v1",
+    "labels": [
+      "publish",
+      "hold",
+      "reject"
+    ],
+    "suggestion_pilot": {
+      "macro_f1_min": 0.7,
+      "reject_recall_min": 0.8,
+      "invalid_rate_max": 0.1
+    },
+    "auto_publish": {
+      "allowed": false,
+      "reason": "36 мысал автоматты жариялауға жеткіліксіз. Автоматты жариялау үшін кемінде 200 жаңа мысал және publish precision >= 0.98 керек. Бұл шек осы жүргізуден бұрын қойылды."
+    },
+    "note": "Жалпы жиынтық шекті өтпесе, пилот ашылмайды. Бір тілдің ғана жоғары шығуы автоматты түрде рұқсат емес."
+  },
+  "versions": {
+    "v1": {
+      "n": 36,
+      "correct": 22,
+      "accuracy": 0.6111111111111112,
+      "macro_f1": 0.5135566188197767,
+      "invalid": 0,
+      "invalid_rate": 0.0,
+      "per_label": {
+        "publish": {
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1": 0.9090909090909091,
+          "tp": 10,
+          "fp": 0,
+          "fn": 2
+        },
+        "hold": {
+          "precision": 0.46153846153846156,
+          "recall": 1.0,
+          "f1": 0.631578947368421,
+          "tp": 12,
+          "fp": 14,
+          "fn": 0
+        },
+        "reject": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        }
+      },
+      "by_language": {
+        "en": {
+          "n": 12,
+          "correct": 8,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.5555555555555555,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            },
+            "hold": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 4,
+              "fp": 4,
+              "fn": 0
+            },
+            "reject": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            }
+          }
+        },
+        "kk": {
+          "n": 12,
+          "correct": 6,
+          "accuracy": 0.5,
+          "macro_f1": 0.41269841269841273,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "hold": {
+              "precision": 0.4,
+              "recall": 1.0,
+              "f1": 0.5714285714285715,
+              "tp": 4,
+              "fp": 6,
+              "fn": 0
+            },
+            "reject": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            }
+          }
+        },
+        "ru": {
+          "n": 12,
+          "correct": 8,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.5555555555555555,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            },
+            "hold": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 4,
+              "fp": 4,
+              "fn": 0
+            },
+            "reject": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            }
+          }
+        }
+      },
+      "model": "qwen2.5:3b",
+      "mean_latency_ms": 720,
+      "median_latency_ms": 714,
+      "p95_latency_ms": 786,
+      "mean_input_tokens": 96.44444444444444,
+      "mean_output_tokens": 19.416666666666668,
+      "rows": [
+        {
+          "id": "CH-01",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 1010
+        },
+        {
+          "id": "CH-02",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "hold",
+          "latency_ms": 765
+        },
+        {
+          "id": "CH-03",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "hold",
+          "latency_ms": 761
+        },
+        {
+          "id": "CH-04",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 774
+        },
+        {
+          "id": "CH-05",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 761
+        },
+        {
+          "id": "CH-06",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 763
+        },
+        {
+          "id": "CH-07",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 760
+        },
+        {
+          "id": "CH-08",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 710
+        },
+        {
+          "id": "CH-09",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 759
+        },
+        {
+          "id": "CH-10",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 764
+        },
+        {
+          "id": "CH-11",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 663
+        },
+        {
+          "id": "CH-12",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 755
+        },
+        {
+          "id": "CH-13",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 760
+        },
+        {
+          "id": "CH-14",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 690
+        },
+        {
+          "id": "CH-15",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 705
+        },
+        {
+          "id": "CH-16",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 814
+        },
+        {
+          "id": "CH-17",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 786
+        },
+        {
+          "id": "CH-18",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 667
+        },
+        {
+          "id": "CH-19",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 638
+        },
+        {
+          "id": "CH-20",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 676
+        },
+        {
+          "id": "CH-21",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 749
+        },
+        {
+          "id": "CH-22",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 751
+        },
+        {
+          "id": "CH-23",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 633
+        },
+        {
+          "id": "CH-24",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 733
+        },
+        {
+          "id": "CH-25",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 692
+        },
+        {
+          "id": "CH-26",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 661
+        },
+        {
+          "id": "CH-27",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 699
+        },
+        {
+          "id": "CH-28",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 714
+        },
+        {
+          "id": "CH-29",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 669
+        },
+        {
+          "id": "CH-30",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 667
+        },
+        {
+          "id": "CH-31",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 691
+        },
+        {
+          "id": "CH-32",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 633
+        },
+        {
+          "id": "CH-33",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 630
+        },
+        {
+          "id": "CH-34",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 636
+        },
+        {
+          "id": "CH-35",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 621
+        },
+        {
+          "id": "CH-36",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 762
+        }
+      ],
+      "suggestion_pilot": false
+    },
+    "v2": {
+      "n": 36,
+      "correct": 29,
+      "accuracy": 0.8055555555555556,
+      "macro_f1": 0.7974358974358974,
+      "invalid": 0,
+      "invalid_rate": 0.0,
+      "per_label": {
+        "publish": {
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.923076923076923,
+          "tp": 12,
+          "fp": 2,
+          "fn": 0
+        },
+        "hold": {
+          "precision": 0.875,
+          "recall": 0.5833333333333334,
+          "f1": 0.7000000000000001,
+          "tp": 7,
+          "fp": 1,
+          "fn": 5
+        },
+        "reject": {
+          "precision": 0.7142857142857143,
+          "recall": 0.8333333333333334,
+          "f1": 0.7692307692307692,
+          "tp": 10,
+          "fp": 4,
+          "fn": 2
+        }
+      },
+      "by_language": {
+        "en": {
+          "n": 12,
+          "correct": 10,
+          "accuracy": 0.8333333333333334,
+          "macro_f1": 0.8222222222222223,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            },
+            "hold": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "reject": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "tp": 4,
+              "fp": 2,
+              "fn": 0
+            }
+          }
+        },
+        "kk": {
+          "n": 12,
+          "correct": 8,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.6534391534391535,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 0.8,
+              "recall": 1.0,
+              "f1": 0.888888888888889,
+              "tp": 4,
+              "fp": 1,
+              "fn": 0
+            },
+            "hold": {
+              "precision": 0.6666666666666666,
+              "recall": 0.5,
+              "f1": 0.5714285714285715,
+              "tp": 2,
+              "fp": 1,
+              "fn": 2
+            },
+            "reject": {
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5,
+              "tp": 2,
+              "fp": 2,
+              "fn": 2
+            }
+          }
+        },
+        "ru": {
+          "n": 12,
+          "correct": 11,
+          "accuracy": 0.9166666666666666,
+          "macro_f1": 0.9153439153439153,
+          "invalid": 0,
+          "invalid_rate": 0.0,
+          "per_label": {
+            "publish": {
+              "precision": 0.8,
+              "recall": 1.0,
+              "f1": 0.888888888888889,
+              "tp": 4,
+              "fp": 1,
+              "fn": 0
+            },
+            "hold": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "f1": 0.8571428571428571,
+              "tp": 3,
+              "fp": 0,
+              "fn": 1
+            },
+            "reject": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      },
+      "model": "qwen2.5:3b",
+      "mean_latency_ms": 994,
+      "median_latency_ms": 994,
+      "p95_latency_ms": 1418,
+      "mean_input_tokens": 485.44444444444446,
+      "mean_output_tokens": 20.97222222222222,
+      "rows": [
+        {
+          "id": "CH-01",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 934
+        },
+        {
+          "id": "CH-02",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 1139
+        },
+        {
+          "id": "CH-03",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 1449
+        },
+        {
+          "id": "CH-04",
+          "language": "kk",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 1095
+        },
+        {
+          "id": "CH-05",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 1025
+        },
+        {
+          "id": "CH-06",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "reject",
+          "latency_ms": 810
+        },
+        {
+          "id": "CH-07",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "reject",
+          "latency_ms": 1009
+        },
+        {
+          "id": "CH-08",
+          "language": "kk",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 1418
+        },
+        {
+          "id": "CH-09",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "hold",
+          "latency_ms": 1245
+        },
+        {
+          "id": "CH-10",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "publish",
+          "latency_ms": 1077
+        },
+        {
+          "id": "CH-11",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 911
+        },
+        {
+          "id": "CH-12",
+          "language": "kk",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 775
+        },
+        {
+          "id": "CH-13",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 780
+        },
+        {
+          "id": "CH-14",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 684
+        },
+        {
+          "id": "CH-15",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 891
+        },
+        {
+          "id": "CH-16",
+          "language": "ru",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 922
+        },
+        {
+          "id": "CH-17",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "publish",
+          "latency_ms": 986
+        },
+        {
+          "id": "CH-18",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 879
+        },
+        {
+          "id": "CH-19",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 1139
+        },
+        {
+          "id": "CH-20",
+          "language": "ru",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 923
+        },
+        {
+          "id": "CH-21",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 1021
+        },
+        {
+          "id": "CH-22",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 863
+        },
+        {
+          "id": "CH-23",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 1023
+        },
+        {
+          "id": "CH-24",
+          "language": "ru",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 1125
+        },
+        {
+          "id": "CH-25",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 736
+        },
+        {
+          "id": "CH-26",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 1471
+        },
+        {
+          "id": "CH-27",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 834
+        },
+        {
+          "id": "CH-28",
+          "language": "en",
+          "gold_action": "publish",
+          "action": "publish",
+          "latency_ms": 849
+        },
+        {
+          "id": "CH-29",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 1140
+        },
+        {
+          "id": "CH-30",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "reject",
+          "latency_ms": 995
+        },
+        {
+          "id": "CH-31",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "hold",
+          "latency_ms": 1050
+        },
+        {
+          "id": "CH-32",
+          "language": "en",
+          "gold_action": "hold",
+          "action": "reject",
+          "latency_ms": 1057
+        },
+        {
+          "id": "CH-33",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 738
+        },
+        {
+          "id": "CH-34",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 919
+        },
+        {
+          "id": "CH-35",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 874
+        },
+        {
+          "id": "CH-36",
+          "language": "en",
+          "gold_action": "reject",
+          "action": "reject",
+          "latency_ms": 994
+        }
+      ],
+      "suggestion_pilot": true
+    }
+  }
+}

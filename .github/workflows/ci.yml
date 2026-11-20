@@ -125,7 +125,7 @@ jobs:
           output: trivy-report.json
           exit-code: "0"
           severity: CRITICAL,HIGH
-          skip-dirs: node_modules,lab09/.venv,lab10/.venv,lab11/.venv,.next
+          skip-dirs: node_modules,lab09/.venv,lab10/.venv,lab11/.venv,lab12/.venv,.next
       - name: Trivy report must exist
         run: test -s trivy-report.json
       - uses: actions/upload-artifact@v4
@@ -148,6 +148,22 @@ jobs:
           python-version: "3.12"
       - name: Week 11 quality package
         working-directory: lab11
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pytest
+          python scripts/verify.py
+
+  quality-lab12:
+    name: quality-lab12
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Week 12 quality package
+        working-directory: lab12
         run: |
           python -m pip install -r requirements.txt
           python -m pytest

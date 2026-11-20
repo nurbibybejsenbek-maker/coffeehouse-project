@@ -1,0 +1,23 @@
+[
+  {
+    "language": "kk",
+    "rating": 4,
+    "comment": "Раф тәттілеу, бірақ бүгінгі латте дәл орнында. Рақмет.",
+    "action": "publish",
+    "reason": "дәм туралы оң пікір"
+  },
+  {
+    "language": "ru",
+    "rating": 2,
+    "comment": "Очередь на кассе была минут двадцать, стакан отдали без крышки.",
+    "action": "hold",
+    "reason": "күту және қызмет шағымы, балағат жоқ"
+  },
+  {
+    "language": "en",
+    "rating": 5,
+    "comment": "Buy followers at follow-cheap.example, this cafe review is just a place to post.",
+    "action": "reject",
+    "reason": "жарнама сілтемесі"
+  }
+]

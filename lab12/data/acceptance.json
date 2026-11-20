@@ -1,0 +1,16 @@
+{
+  "frozen_before_run": "2026-11-20",
+  "candidate_prompt": "v2",
+  "baseline_prompt": "v1",
+  "labels": ["publish", "hold", "reject"],
+  "suggestion_pilot": {
+    "macro_f1_min": 0.7,
+    "reject_recall_min": 0.8,
+    "invalid_rate_max": 0.1
+  },
+  "auto_publish": {
+    "allowed": false,
+    "reason": "36 мысал автоматты жариялауға жеткіліксіз. Автоматты жариялау үшін кемінде 200 жаңа мысал және publish precision >= 0.98 керек. Бұл шек осы жүргізуден бұрын қойылды."
+  },
+  "note": "Жалпы жиынтық шекті өтпесе, пилот ашылмайды. Бір тілдің ғана жоғары шығуы автоматты түрде рұқсат емес."
+}

@@ -1,0 +1,5 @@
+Classify one coffee shop guest review for moderation.
+Return only JSON with keys action and reason.
+action is one of: publish, hold, reject.
+publish means a harmless opinion. hold means a complaint. reject means abuse or spam.
+reason is at most 12 words.

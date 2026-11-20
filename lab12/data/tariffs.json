@@ -1,0 +1,34 @@
+{
+  "priced_on": "2026-11-20",
+  "fx_kzt_per_usd": 520,
+  "fx_note": "8-апта жоспарлық бағамы. Провайдер шотты USD-мен қояды. Бұл Ұлттық банк бағамы емес.",
+  "hours_per_month": 730,
+  "hours_note": "365 / 12 * 24 = 730. RunPod айлық тариф жарияламайды, сағаттық бағаны осыған көбейтеміз.",
+  "orders_month_12": 6480,
+  "review_rate": 0.08,
+  "review_rate_note": "12-айдағы 6 480 тапсырыстың 8%-ы пікір қалдырады деген жоспарлық болжам. Өлшенген конверсия емес.",
+  "commercial": {
+    "provider": "OpenAI",
+    "model": "gpt-4.1-mini",
+    "tier": "standard",
+    "currency": "USD",
+    "input_per_mtok": 0.4,
+    "output_per_mtok": 1.6,
+    "cached_input_per_mtok": 0.1,
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "sensitivity": {
+      "model": "gpt-4o-mini",
+      "input_per_mtok": 0.15,
+      "output_per_mtok": 0.6,
+      "source": "https://developers.openai.com/api/docs/pricing"
+    }
+  },
+  "gpu": {
+    "provider": "RunPod",
+    "gpu": "RTX 3090",
+    "why": "Qwen2.5 7B Q4 24 GB ішіне сыяды. Пікірде телефон болуы мүмкін, сондықтан өндірістік салыстыру — Secure Cloud.",
+    "secure_usd_per_hour": 0.5,
+    "community_usd_per_hour": 0.22,
+    "source": "https://www.runpod.io/pricing"
+  }
+}

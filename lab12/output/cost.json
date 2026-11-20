@@ -1,0 +1,81 @@
+{
+  "priced_on": "2026-11-20",
+  "token_source": "v2 жүгіртуіндегі әр сұраныстың tiktoken o200k есебінің орташасы",
+  "output_token_note": "Шығыс токені жергілікті модельдің JSON жауабы. Ақылы API шақырылмады, ұзындық сол жауаптан алынды.",
+  "volume": {
+    "orders_month_12": 6480,
+    "review_rate": 0.08,
+    "base_reviews": 518.4,
+    "times_10_reviews": 5184.0
+  },
+  "gpt_4_1_mini": {
+    "base": {
+      "name": "base",
+      "requests": 518.4,
+      "mean_input_tokens": 485.44444444444446,
+      "mean_output_tokens": 20.97222222222222,
+      "usd_per_request": 0.00022773333333333333,
+      "api_usd_month": 0.11805695999999999,
+      "gpu_usd_month": 365.0,
+      "api_cheaper": true,
+      "break_even_requests": 1602751.756440281,
+      "model": "gpt-4.1-mini",
+      "api_kzt_month": 61.38961919999999,
+      "gpu_secure_kzt_month": 189800.0,
+      "gpu_community_usd_month": 160.6
+    },
+    "times_10": {
+      "name": "times_10",
+      "requests": 5184.0,
+      "mean_input_tokens": 485.44444444444446,
+      "mean_output_tokens": 20.97222222222222,
+      "usd_per_request": 0.00022773333333333333,
+      "api_usd_month": 1.1805695999999999,
+      "gpu_usd_month": 365.0,
+      "api_cheaper": true,
+      "break_even_requests": 1602751.756440281,
+      "model": "gpt-4.1-mini",
+      "api_kzt_month": 613.8961919999999,
+      "gpu_secure_kzt_month": 189800.0,
+      "gpu_community_usd_month": 160.6
+    }
+  },
+  "gpt_4o_mini_sensitivity": {
+    "base": {
+      "name": "base",
+      "requests": 518.4,
+      "mean_input_tokens": 485.44444444444446,
+      "mean_output_tokens": 20.97222222222222,
+      "usd_per_request": 8.539999999999999e-05,
+      "api_usd_month": 0.04427135999999999,
+      "gpu_usd_month": 365.0,
+      "api_cheaper": true,
+      "break_even_requests": 4274004.68384075,
+      "model": "gpt-4o-mini",
+      "api_kzt_month": 23.021107199999996,
+      "gpu_secure_kzt_month": 189800.0,
+      "gpu_community_usd_month": 160.6
+    },
+    "times_10": {
+      "name": "times_10",
+      "requests": 5184.0,
+      "mean_input_tokens": 485.44444444444446,
+      "mean_output_tokens": 20.97222222222222,
+      "usd_per_request": 8.539999999999999e-05,
+      "api_usd_month": 0.44271359999999993,
+      "gpu_usd_month": 365.0,
+      "api_cheaper": true,
+      "break_even_requests": 4274004.68384075,
+      "model": "gpt-4o-mini",
+      "api_kzt_month": 230.21107199999997,
+      "gpu_secure_kzt_month": 189800.0,
+      "gpu_community_usd_month": 160.6
+    }
+  },
+  "gpu_secure_usd_month": 365.0,
+  "gpu_community_usd_month": 160.6,
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing",
+    "runpod": "https://www.runpod.io/pricing"
+  }
+}

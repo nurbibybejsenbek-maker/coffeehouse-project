@@ -42,6 +42,7 @@ next-env.d.ts
 /lab09/.venv/
 /lab10/.venv/
 /lab11/.venv/
+/lab12/.venv/
 /lab11/e2e/node_modules/
 /lab11/e2e/test-results/
 /lab11/e2e/playwright-report/
