@@ -1,0 +1,406 @@
+{
+  "project": "CoffeeHouse",
+  "as_of": "2026-10-30T18:00:00+05:00",
+  "timezone": "+05:00",
+  "simulation": "Бұл зертханалық жұмыстағы екі спринттің жұмысы демонстрациялық ортада симуляцияланды. Метрикалар тапсырмалардың сақталған қозғалыс тарихы негізінде автоматты есептелді.",
+  "team": [
+    {
+      "name": "Естемес Назгүл",
+      "role": "PM / QA"
+    },
+    {
+      "name": "Жаукарбекова Элеонора",
+      "role": "BA / Frontend"
+    },
+    {
+      "name": "Бейсенбек Нұрбиби",
+      "role": "SA / Backend"
+    }
+  ],
+  "sources": [
+    "lab09/data/tasks.json",
+    "lab09/data/project.json",
+    "lab09/output/metrics.json",
+    "жергілікті git log"
+  ],
+  "rules": {
+    "aged_days": "1",
+    "cycle_time": "Cycle Time = алғаш Done − алғаш In Progress, күнтізбелік күн.",
+    "throughput": "Throughput = спринт терезесінде Done болған тапсырма саны.",
+    "p85": "P85 nearest-rank. Көрсетілетін сан metrics.json-нан 2 таңбаға дөңгелектелген.",
+    "numbers": "Төмендегі сандар көрсету үшін дөңгелектелген. Қайта дөңгелектеме."
+  },
+  "sprints": [
+    {
+      "id": 1,
+      "name": "Sprint 1",
+      "start": "2026-10-19T09:00:00+05:00",
+      "end": "2026-10-23T18:00:00+05:00",
+      "goal": "CoffeeHouse веб-сайтының негізгі құрылымын, мәзірді көрсету және өнімдер туралы ақпаратты ұсыну функционалдарын әзірлеу.",
+      "goal_status": "Ішінара орындалды: сайт құрылымы және мәзірді көрсету дайын, өнім туралы толық ақпарат беті аяқталмады.",
+      "scope_count": "12",
+      "done_count": "9",
+      "done_ids": [
+        "CH-101",
+        "CH-102",
+        "CH-103",
+        "CH-105",
+        "CH-106",
+        "CH-107",
+        "CH-109",
+        "CH-110",
+        "CH-112"
+      ],
+      "open": [
+        {
+          "id": "CH-104",
+          "title": "Өнім карточкасы және өнімнің толық беті",
+          "status": "In Progress",
+          "assignee": "Жаукарбекова Элеонора",
+          "age_days": "1,07",
+          "age_hours": "25,75",
+          "aged": true
+        },
+        {
+          "id": "CH-108",
+          "title": "Тапсырма тарихын жүргізу (event log, CSV экспорт)",
+          "status": "Testing",
+          "assignee": "Бейсенбек Нұрбиби",
+          "age_days": "1,24",
+          "age_hours": "29,75",
+          "aged": true
+        },
+        {
+          "id": "CH-111",
+          "title": "Мәзір мен өнім беттерінің регрессиялық тестілеуі",
+          "status": "Ready",
+          "assignee": "Естемес Назгүл",
+          "age_days": null,
+          "age_hours": null,
+          "aged": false
+        }
+      ],
+      "carry_over": [],
+      "throughput": "9",
+      "throughput_daily": [
+        {
+          "date": "2026-10-19",
+          "count": "0",
+          "ids": []
+        },
+        {
+          "date": "2026-10-20",
+          "count": "2",
+          "ids": [
+            "CH-105",
+            "CH-109"
+          ]
+        },
+        {
+          "date": "2026-10-21",
+          "count": "1",
+          "ids": [
+            "CH-101"
+          ]
+        },
+        {
+          "date": "2026-10-22",
+          "count": "2",
+          "ids": [
+            "CH-102",
+            "CH-110"
+          ]
+        },
+        {
+          "date": "2026-10-23",
+          "count": "4",
+          "ids": [
+            "CH-103",
+            "CH-106",
+            "CH-107",
+            "CH-112"
+          ]
+        }
+      ],
+      "completion_pct": "75,0",
+      "sp_scope": "39",
+      "sp_done": "29",
+      "sp_completion_pct": "74,4",
+      "avg_cycle_days": "2,00",
+      "p85_cycle_days": "2,75",
+      "avg_cycle_days_new": "2,00",
+      "p85_cycle_days_new": "2,75",
+      "wip_avg_eod": "4,40",
+      "wip_peak": "6",
+      "testing_avg_eod": "1,80",
+      "testing_peak": "4",
+      "testing_limit": "2",
+      "testing_violations": "2",
+      "testing_over_hours": "5,00",
+      "testing_avg_hours": "18,67",
+      "impediments": [
+        {
+          "text": "Testing бағанында тапсырмалар жиналды: бейсенбі 17:30-да 4 тапсырма (WIP лимиті 2). Негізгі тестілеуші біреу, ол PM рөлін де атқарады.",
+          "tasks": [
+            "CH-103",
+            "CH-106",
+            "CH-107",
+            "CH-112"
+          ],
+          "owner": "Естемес Назгүл"
+        },
+        {
+          "text": "CH-107 seed деректерінде 6 өнімнің суреті мен қазақша сипаттамасы жоқ болып шықты — Testing → In Progress қайтарылды (rework).",
+          "tasks": [
+            "CH-107",
+            "CH-104"
+          ],
+          "owner": "Бейсенбек Нұрбиби"
+        },
+        {
+          "text": "CH-111 регрессиялық тесті тәуелділіктері аяқталмағандықтан басталмады.",
+          "tasks": [
+            "CH-111"
+          ],
+          "owner": "Естемес Назгүл"
+        },
+        {
+          "text": "Әзірлеушілер тапсырманы шолуға/тестке беріп, бірден жаңасын бастады («тапсырманы қабырғадан асыра лақтыру»), Testing WIP лимиті екі рет бұзылды.",
+          "tasks": [
+            "CH-107",
+            "CH-103"
+          ],
+          "owner": "Естемес Назгүл"
+        }
+      ],
+      "not_done_explanation": [
+        "CH-104 (өнімнің толық беті) — CH-107 ақауына байланысты кешікті, In Progress-те қалды.",
+        "CH-108 (тапсырма тарихы, CSV экспорт) — Testing кезегінде қалды.",
+        "CH-111 (регрессиялық тест) — тәуелділіктері (CH-103, CH-104, CH-106, CH-107) аяқталмағандықтан басталмады."
+      ],
+      "defects": [
+        {
+          "id": "CH-107",
+          "at": "2026-10-23T13:00:00+05:00",
+          "note": "АҚАУ: 6 өнімде сурет пен қазақша сипаттама жоқ — rework"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sprint 2",
+      "start": "2026-10-26T09:00:00+05:00",
+      "end": "2026-10-30T18:00:00+05:00",
+      "goal": "CoffeeHouse веб-сайтында онлайн тапсырыс беру және үстел брондау функционалдарын іске асыру.",
+      "goal_status": "Негізінен орындалды: онлайн тапсырыс және брондау функционалдары жұмыс істейді; брондаудың соңғы функционалдық тесті Sprint 3-ке ауысады.",
+      "scope_count": "12",
+      "done_count": "11",
+      "done_ids": [
+        "CH-104",
+        "CH-108",
+        "CH-111",
+        "CH-201",
+        "CH-202",
+        "CH-203",
+        "CH-204",
+        "CH-205",
+        "CH-206",
+        "CH-207",
+        "CH-208"
+      ],
+      "open": [
+        {
+          "id": "CH-209",
+          "title": "Брондау ағынының функционалдық тестілеуі",
+          "status": "In Progress",
+          "assignee": "Естемес Назгүл",
+          "age_days": "0,21",
+          "age_hours": "5,00",
+          "aged": false
+        }
+      ],
+      "carry_over": [
+        "CH-104",
+        "CH-108",
+        "CH-111"
+      ],
+      "throughput": "11",
+      "throughput_daily": [
+        {
+          "date": "2026-10-26",
+          "count": "2",
+          "ids": [
+            "CH-104",
+            "CH-108"
+          ]
+        },
+        {
+          "date": "2026-10-27",
+          "count": "2",
+          "ids": [
+            "CH-204",
+            "CH-207"
+          ]
+        },
+        {
+          "date": "2026-10-28",
+          "count": "2",
+          "ids": [
+            "CH-111",
+            "CH-202"
+          ]
+        },
+        {
+          "date": "2026-10-29",
+          "count": "2",
+          "ids": [
+            "CH-205",
+            "CH-206"
+          ]
+        },
+        {
+          "date": "2026-10-30",
+          "count": "3",
+          "ids": [
+            "CH-201",
+            "CH-203",
+            "CH-208"
+          ]
+        }
+      ],
+      "completion_pct": "91,7",
+      "sp_scope": "40",
+      "sp_done": "37",
+      "sp_completion_pct": "92,5",
+      "avg_cycle_days": "2,01",
+      "p85_cycle_days": "3,95",
+      "avg_cycle_days_new": "1,58",
+      "p85_cycle_days_new": "2,20",
+      "wip_avg_eod": "3,00",
+      "wip_peak": "4",
+      "testing_avg_eod": "0,80",
+      "testing_peak": "2",
+      "testing_limit": "2",
+      "testing_violations": "0",
+      "testing_over_hours": "0,00",
+      "testing_avg_hours": "13,70",
+      "impediments": [
+        {
+          "text": "CH-201 себетінде өнім саны өзгергенде жалпы сома қайта есептелмеді — Testing → In Progress қайтарылды (rework).",
+          "tasks": [
+            "CH-201"
+          ],
+          "owner": "Жаукарбекова Элеонора"
+        },
+        {
+          "text": "Sprint 1-ден ауысқан 3 тапсырма дүйсенбі күнгі уақыттың бір бөлігін алды; олардың Cycle Time мәніне демалыс күндері де кірді.",
+          "tasks": [
+            "CH-104",
+            "CH-108",
+            "CH-111"
+          ],
+          "owner": "Естемес Назгүл"
+        },
+        {
+          "text": "CH-209 CH-203 интеграциясына тәуелді болды, сондықтан кеш басталды.",
+          "tasks": [
+            "CH-209",
+            "CH-203"
+          ],
+          "owner": "Естемес Назгүл"
+        }
+      ],
+      "not_done_explanation": [
+        "CH-209 (брондау ағынының функционалдық тесті) жұма 13:00-де басталды — CH-203 интеграциясы жұма күні ғана Testing-ке өткендіктен уақыт жетпеді."
+      ],
+      "defects": [
+        {
+          "id": "CH-201",
+          "at": "2026-10-29T14:00:00+05:00",
+          "note": "АҚАУ: себетте сан өзгергенде сома қайта есептелмейді — rework"
+        }
+      ]
+    }
+  ],
+  "retro_action": {
+    "id": "RETRO-1-A1",
+    "metric": "Testing бағанындағы күн соңындағы тапсырмалардың орташа саны",
+    "before": "1,80",
+    "after": "0,80",
+    "reduction_pct": "55,6",
+    "target_pct": "30",
+    "achieved": true
+  },
+  "rework": {
+    "sprint_1": "1",
+    "sprint_2": "1"
+  },
+  "cross_testing_pct": {
+    "sprint_1": "0,0",
+    "sprint_2": "87,5"
+  },
+  "repository": {
+    "local_commits_outside_sprint_windows": [
+      {
+        "sha": "c6d859b",
+        "at": "2026-11-20",
+        "subject": "Add the week 12 AI moderation plan, eval results, and cost model."
+      },
+      {
+        "sha": "88a1c6c",
+        "at": "2026-11-13",
+        "subject": "Add the week 11 test plan, UAT protocol, postmortem, and runbook."
+      },
+      {
+        "sha": "7e82bb2",
+        "at": "2026-11-06",
+        "subject": "Add a CI pipeline, DORA dashboard, and release plan."
+      },
+      {
+        "sha": "d4a4b56",
+        "at": "2026-10-09",
+        "subject": "Создано в Colab"
+      },
+      {
+        "sha": "ea5dad8",
+        "at": "2026-10-09",
+        "subject": "Initial commit: CoffeeHouse WEB project"
+      }
+    ],
+    "windows": [
+      {
+        "sprint": 1,
+        "local_git_commits": 0
+      },
+      {
+        "sprint": 2,
+        "local_git_commits": 0
+      }
+    ],
+    "github_api": {
+      "slug": "nurbibybejsenbek-maker/coffeehouse-project",
+      "windows": [
+        {
+          "sprint": 1,
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "error": null
+        },
+        {
+          "sprint": 2,
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "error": null
+        }
+      ]
+    },
+    "use_count_from": "жергілікті git. API саны сәйкес келсе ғана растау. API қатесі нөл коммит дегенді білдірмейді."
+  },
+  "next_action": {
+    "text": "CH-209 брондау тесті Sprint 2 соңында In Progress. Sprint 3-ке ауысады деп Sprint 2 шолуында жазылған.",
+    "owner": "Естемес Назгүл",
+    "due": "дерек жоқ"
+  }
+}

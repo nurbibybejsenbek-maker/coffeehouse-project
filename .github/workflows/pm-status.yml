@@ -1,0 +1,38 @@
+# Дүйсенбі 04:00 UTC = 09:00 Asia/Almaty. Фактіні жинайды.
+# Нобайды ubuntu-runner жазбайды: Ollama сол машинада жоқ.
+# Жергілікті нобай: lab13 ішінде python3 scripts/run_status.py
+
+name: PM status facts
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  facts:
+    name: collect-facts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect tracker and repository facts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 lab13/scripts/run_status.py --facts-only
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pm-status-facts
+          path: |
+            lab13/output/facts.json
+            lab13/output/brief.md
+          if-no-files-found: error

@@ -1,0 +1,19 @@
+{
+  "collect_ms": 1057,
+  "model_ms": 62872,
+  "model": "qwen2.5:3b",
+  "called_at": "2026-11-27T09:58:56+05:00",
+  "done_reason": "stop",
+  "eval_count": 1640,
+  "prompt_eval_count": 4834,
+  "first_run_model_ms": 68269,
+  "first_run_num_predict": 1200,
+  "manual_compose_s": 25,
+  "manual_compose_from": 1795755324,
+  "manual_compose_to": 1795755349,
+  "verify_compare_s": 116,
+  "verify_compare_from": 1795755536,
+  "verify_compare_to": 1795755652,
+  "writeup_window_s": 137,
+  "writeup_window_to": 1795755789
+}
